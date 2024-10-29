@@ -22,6 +22,7 @@ class Graph:
 
             for neighbor, weight in self.edges[current_vertex]:
                 new_distance = current_distance + weight
+
                 if new_distance < distances[neighbor]:
                     distances[neighbor] = new_distance
                     heapq.heappush(priority_queue, (new_distance, neighbor))
@@ -32,11 +33,10 @@ class Graph:
 graph = Graph(5)
 graph.add_edge(0, 1, 2)
 graph.add_edge(0, 2, 3)
-graph.add_edge(1, 2, 1) 
-graph.add_edge(1, 3, 4)
-graph.add_edge(2, 3, 2)
-graph.add_edge(2, 4, 5)
-graph.add_edge(3, 4, 6)
+graph.add_edge(1, 3, 1)
+graph.add_edge(1, 4, 5)
+graph.add_edge(2, 4, 6)
+graph.add_edge(3, 4, 4)
 
 start_vertex = 0
 distances = graph.dijkstra(start_vertex)
